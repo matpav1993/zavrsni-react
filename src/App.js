@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
 import Input from "./Input";
+import Messages from "./Messages";
 
 function randomUser() {
   const avatars = [
@@ -55,7 +56,6 @@ class App extends Component {
       let find = messages.find((res) => res.message.id === response.id);
       if (!find) {
         messages.unshift({ member, message: response });
-        console.log(messages);
         this.setState({ messages });
       }
     });
@@ -78,6 +78,10 @@ class App extends Component {
         </div>
         {this.state.member && (
           <>
+            <Messages
+              messages={this.state.messages}
+              currentMember={this.state.member}
+            />
             <Input sendMessage={this.sendMessage} />
           </>
         )}

@@ -42,3 +42,61 @@ input {
   border-radius: 8px;
   margin-left: 10px;
 }
+
+.message-list {
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.message-content {
+  display: inline-block;
+}
+
+.Messages-message {
+  display: flex;
+  margin-top: 10px;
+}
+
+.Messages-message.currentMember {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.Messages-message > .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 10px -10px;
+}
+
+.message-content > .username {
+  display: block;
+  color: rgb(2, 2, 2);
+  font-size: 14px;
+  padding-bottom: 4px;
+}
+
+.message-content > .text {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0;
+  border-radius: 12px;
+  background-color: rgb(218, 154, 154);
+  color: rgb(51, 50, 48);
+  display: inline-block;
+  min-width: 150px;
+}
+
+.currentMember > .message-content .text {
+  background-color: rgba(252, 158, 81, 0.664);
+  text-align: left;
+}
