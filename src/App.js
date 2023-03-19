@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
+import Input from "./Input";
 
 function randomUser() {
   const avatars = [
@@ -54,11 +55,20 @@ class App extends Component {
       let find = messages.find((res) => res.message.id === response.id);
       if (!find) {
         messages.unshift({ member, message: response });
-        // console.log(messages);
+        console.log(messages);
         this.setState({ messages });
       }
     });
   }
+  sendMessage = (message) => {
+    this.drone.publish({
+      room: "ChannelName1",
+      message: {
+        message,
+        member: this.state.member,
+      },
+    });
+  };
 
   render() {
     return (
@@ -66,7 +76,11 @@ class App extends Component {
         <div className="App-header">
           <h1>Chat</h1>
         </div>
-        {this.state.member && <></>}
+        {this.state.member && (
+          <>
+            <Input sendMessage={this.sendMessage} />
+          </>
+        )}
       </div>
     );
   }
