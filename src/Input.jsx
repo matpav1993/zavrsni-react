@@ -12,6 +12,10 @@ class Input extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    if(this.state.text.trim() === "") {
+    return;
+    }
+
     this.setState({ text: "" });
     this.props.sendMessage(this.state.text);
   }
@@ -20,7 +24,7 @@ class Input extends Component {
     return (
       <div className="Input">
         <form className="inputForm" onSubmit={(e) => this.onSubmit(e)}>
-          <input
+          <input autoFocus={true}
             onChange={(e) => this.onChange(e)}
             value={this.state.text}
             type="text"

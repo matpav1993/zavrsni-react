@@ -43,7 +43,7 @@ class Messages extends Component {
             {message.data.message}
             <br></br>
             <small style={{ fontSize: 10 }}>
-              {date.toLocaleDateString()}
+              {date.toLocaleDateString('hr-HR')}
               <br></br>
               {date.getHours()}h {date.getMinutes()}min
             </small>
